@@ -86,12 +86,14 @@ const updateList = async function () {
         // user url
         const urlNode = document.createElement("li")
         urlNode.className = "item__url"
-        urlNode.innerHTML = `<a class="link" target="_blank" href="${user.url}">${user.url}</a>`
+        urlNode.innerHTML = `<a class="link" target="_blank" href="${user.url}">GitHub: ${user.url}</a>`
 
         // url public repos
         const publicRepos = document.createElement("li")
         publicRepos.className = "repositories"
         publicRepos.innerHTML = `Public repositories: <span>${user.publicRepos.length}</span>`
+
+        //
 
         // append to userBasicInfo div
         userBasicInfoNode.appendChild(userNameNode)
@@ -103,22 +105,42 @@ const updateList = async function () {
         timeNode.className = "time__item"
         timeNode.innerHTML = `${user.time} hours`
 
-        // append userBasicInfo and time to item__container
+        // create div for button
+        const buttonContainer = document.createElement("div")
+        buttonContainer.className = "button__container"
+
+        // create button see more
+        const buttonMore = document.createElement("button")
+        buttonMore.className = "buttonMore"
+        buttonMore.innerHTML = "See more"
+
+        // append button to div
+        buttonContainer.appendChild(buttonMore)
+        
+        // append userBasicInfo and time and buttonMore to item__container
         itemContainerNode.appendChild(userBasicInfoNode)
         itemContainerNode.appendChild(timeNode)
+        itemContainerNode.appendChild(buttonContainer)
 
         // append item__container to main ul
         itemListNode.appendChild(itemContainerNode)
     })
-}
 
+    
+     
+    }
+    
 window.onload = () => {
     updateList()
-
+    
     const timeStampHoursNode = document.querySelector(".time.time__hours")
     const timeStampDayNode = document.querySelector(".time.time__day")
     const timeStampMonthNode = document.querySelector(".time__month")
     const timeStampYearNode = document.querySelector(".time__year")
+    const buttonContainer = document.querySelectorAll(".button__container")
+    const dashboardChildNode = document.querySelector(".dashboard__child")
+    const overLay = document.querySelector(".dashboard__overlay")
+    const iconExit = document.querySelector(".times-exit")
 
     timeStampHoursNode.onclick = () => {
         timeStamp = "hour"
@@ -154,5 +176,24 @@ window.onload = () => {
         timeStampMonthNode.classList.remove("time__selected")
         timeStampYearNode.classList.add("time__selected")
         updateList()
+    }
+
+    // click button open dashboard
+    buttonContainer.forEach(button => {
+        button.onclick = () => {
+            dashboardChildNode.classList.add("active")
+            overLay.classList.add("active")
+        }
+    })
+
+    // click remove dashboard and overLay
+    overLay.onclick = () => {
+        dashboardChildNode.classList.remove("active")
+        overLay.classList.remove("active")
+    }
+    // click remove dashboard and overLay
+    iconExit.onclick = () => {
+        dashboardChildNode.classList.remove("active")
+        overLay.classList.remove("active")
     }
 }
