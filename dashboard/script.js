@@ -7,14 +7,62 @@ const updateList = async function () {
         {
             name: "Phạm Công",
             url: "https://github.com/PhamCong01/weather-app",
-            publicRepos: 100,
+            publicRepos: ["repo1", "repo2"],
             time: 12,
         },
         {
             name: "Jack Do",
             url: "https://github.com/jackdo1012",
-            publicRepos: 10,
+            publicRepos: ["repo1", "repo2"],
             time: 1,
+        },
+        {
+            name: "Jack Do",
+            url: "https://github.com/jackdo1012",
+            publicRepos: ["repo1", "repo2"],
+            time: 1,
+        },
+        {
+            name: "Test",
+            url: "https://github.com/test",
+            publicRepos: ["repo1", "repo2"],
+            time: 1145888,
+        },
+        {
+            name: "Ông Dev",
+            url: "https://github.com/ongdev",
+            publicRepos: ["repo1", "repo2"],
+            time: 1123,
+        },
+        {
+            name: "Phạm Công",
+            url: "https://github.com/PhamCong01/weather-app",
+            publicRepos: ["repo1", "repo2"],
+            time: 12,
+        },
+        {
+            name: "Jack Do",
+            url: "https://github.com/jackdo1012",
+            publicRepos: ["repo1", "repo2"],
+            time: 1,
+        },
+        {
+            name: "Jack Do",
+            url: "https://github.com/jackdo1012",
+            publicRepos: ["repo1", "repo2"],
+            time: 1,
+        },
+        {
+            name: "Test",
+            url: "https://github.com/test",
+            publicRepos: ["repo1", "repo2"],
+            time: 1145888,
+        },
+        {
+            name: "Ông Dev",
+            url: "https://github.com/ongdev",
+            publicRepos: ["repo1", "repo2"],
+            time: 1123,
         },
     ]
 
@@ -43,7 +91,7 @@ const updateList = async function () {
         // url public repos
         const publicRepos = document.createElement("li")
         publicRepos.className = "repositories"
-        publicRepos.innerHTML = `Public repositories: <span>${user.publicRepos}</span>`
+        publicRepos.innerHTML = `Public repositories: <span>${user.publicRepos.length}</span>`
 
         // append to userBasicInfo div
         userBasicInfoNode.appendChild(userNameNode)
@@ -74,21 +122,37 @@ window.onload = () => {
 
     timeStampHoursNode.onclick = () => {
         timeStamp = "hour"
+        timeStampHoursNode.classList.add("time__selected")
+        timeStampDayNode.classList.remove("time__selected")
+        timeStampMonthNode.classList.remove("time__selected")
+        timeStampYearNode.classList.remove("time__selected")
         updateList()
     }
 
     timeStampDayNode.onclick = () => {
         timeStamp = "day"
+        timeStampHoursNode.classList.remove("time__selected")
+        timeStampDayNode.classList.add("time__selected")
+        timeStampMonthNode.classList.remove("time__selected")
+        timeStampYearNode.classList.remove("time__selected")
         updateList()
     }
 
     timeStampMonthNode.onclick = () => {
         timeStamp = "month"
+        timeStampHoursNode.classList.remove("time__selected")
+        timeStampDayNode.classList.remove("time__selected")
+        timeStampMonthNode.classList.add("time__selected")
+        timeStampYearNode.classList.remove("time__selected")
         updateList()
     }
 
     timeStampYearNode.onclick = () => {
         timeStamp = "year"
+        timeStampHoursNode.classList.remove("time__selected")
+        timeStampDayNode.classList.remove("time__selected")
+        timeStampMonthNode.classList.remove("time__selected")
+        timeStampYearNode.classList.add("time__selected")
         updateList()
     }
 }
