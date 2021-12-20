@@ -7,6 +7,7 @@ const updateList = async function () {
         {
             fullName: "Phạm Công",
             username: "PhamCong01",
+            url: "https://github.com/PhamCong01",
             repos: [
                 {
                     name: "Repo 1",
@@ -38,6 +39,7 @@ const updateList = async function () {
         {
             fullName: "Phạm Công",
             username: "PhamCong01",
+            url: "https://github.com/PhamCong01",
             repos: [
                 {
                     name: "Repo 2",
@@ -50,6 +52,7 @@ const updateList = async function () {
         {
             fullName: "Phạm Công",
             username: "PhamCong01",
+            url: "https://github.com/PhamCong01",
             repos: [
                 {
                     name: "Repo 2",
@@ -62,6 +65,7 @@ const updateList = async function () {
         {
             fullName: "Phạm Công",
             username: "PhamCong01",
+            url: "https://github.com/PhamCong01",
             repos: [
                 {
                     name: "Repo 2",
@@ -74,6 +78,7 @@ const updateList = async function () {
         {
             fullName: "Phạm Công",
             username: "PhamCong01",
+            url: "https://github.com/PhamCong01",
             repos: [
                 {
                     name: "Repo 2",
@@ -86,6 +91,7 @@ const updateList = async function () {
         {
             fullName: "Phạm Công",
             username: "PhamCong01",
+            url: "https://github.com/PhamCong01",
             repos: [
                 {
                     name: "Repo 2",
@@ -98,6 +104,7 @@ const updateList = async function () {
         {
             fullName: "Phạm Công",
             username: "PhamCong01",
+            url: "https://github.com/PhamCong01",
             repos: [
                 {
                     name: "Repo 2",
@@ -110,6 +117,7 @@ const updateList = async function () {
         {
             fullName: "Phạm Công",
             username: "PhamCong01",
+            url: "https://github.com/PhamCong01",
             repos: [
                 {
                     name: "Repo 2",
@@ -122,6 +130,7 @@ const updateList = async function () {
         {
             fullName: "Phạm Công",
             username: "PhamCong01",
+            url: "https://github.com/PhamCong01",
             repos: [
                 {
                     name: "Repo 2",
@@ -153,7 +162,7 @@ const updateList = async function () {
         // user url
         const urlNode = document.createElement("li")
         urlNode.className = "item__url"
-        urlNode.innerHTML = `<a class="link" target="_blank" href="https://github.com/${user.username}">GitHub: ${user.username}</a>`
+        urlNode.innerHTML = `<a class="link" target="_blank" href="${user.url}">GitHub: ${user.username}</a>`
 
         // url public repos
         const publicRepos = document.createElement("li")
@@ -178,7 +187,7 @@ const updateList = async function () {
         const buttonMore = document.createElement("button")
         buttonMore.className = "buttonMore"
         buttonMore.innerHTML = "See more"
-        buttonMore.onclick = () => renderSeeMoreBtn(user.repos)
+        buttonMore.onclick = () => renderChildDashboard(user.repos)
 
         // append button to div
         buttonContainer.appendChild(buttonMore)
@@ -193,11 +202,30 @@ const updateList = async function () {
     })
 }
 
-const renderSeeMoreBtn = function (repos) {
+const renderChildDashboard = function (repos) {
     const buttonContainer = document.querySelectorAll(".button__container")
     const dashboardChildNode = document.querySelector(".dashboard__child")
-    const overLayNode = document.querySelector(".dashboard__overlay")
+    const overlayNode = document.querySelector(".dashboard__overlay")
     const exitIconNode = document.querySelector(".times-exit")
+
+    // click button open dashboard
+    buttonContainer.forEach((button) => {
+        button.onclick = () => {
+            dashboardChildNode.classList.add("active")
+            overlayNode.classList.add("active")
+        }
+    })
+
+    // click remove dashboard and overLay
+    overlayNode.onclick = () => {
+        dashboardChildNode.classList.remove("active")
+        overlayNode.classList.remove("active")
+    }
+    // click remove dashboard and overLay
+    exitIconNode.onclick = () => {
+        dashboardChildNode.classList.remove("active")
+        overlayNode.classList.remove("active")
+    }
 
     // child dashboard container
     const dashboardContainerNode = document.querySelector(
@@ -209,19 +237,19 @@ const renderSeeMoreBtn = function (repos) {
     buttonContainer.forEach((button) => {
         button.onclick = () => {
             dashboardChildNode.classList.add("active")
-            overLayNode.classList.add("active")
+            overlayNode.classList.add("active")
         }
     })
 
     // click remove dashboard and overLay
-    overLayNode.onclick = () => {
+    overlayNode.onclick = () => {
         dashboardChildNode.classList.remove("active")
-        overLayNode.classList.remove("active")
+        overlayNode.classList.remove("active")
     }
     // click remove dashboard and overLay
     exitIconNode.onclick = () => {
         dashboardChildNode.classList.remove("active")
-        overLayNode.classList.remove("active")
+        overlayNode.classList.remove("active")
     }
 
     repos.forEach((repo) => {
@@ -268,8 +296,69 @@ const renderSeeMoreBtn = function (repos) {
     })
 }
 
+const loginAction = async function (e) {
+    e.preventDefault()
+    const email = e.target.nameEmail.value
+    const pass = e.target.password.value
+    console.log("login")
+}
+
+const registerAction = function (e) {
+    e.preventDefault()
+    const email = e.target.createAccount.value
+    const pass = e.target.password.value
+    const passAgain = e.target.passwordAgain.value
+    console.log("register")
+}
+
+const formLogin = function () {
+    const iconLogin = document.querySelector(".login")
+    const form = document.querySelector(".form__container")
+    const overlay = document.querySelector(".dashboard__overlay")
+    const login = document.querySelector(".login__form")
+    const register = document.querySelector(".create__form")
+    const goToLogin = document.querySelector(".goTo__login")
+    const exitIcon = document.querySelector(".form__exit")
+    const goToRegister = document.querySelector(".create__account")
+
+    // set login submission
+    login.onsubmit = (e) => loginAction(e)
+
+    // set register submission
+    register.onsubmit = (e) => registerAction(e)
+
+    // open form login
+    iconLogin.onclick = () => {
+        form.style.display = "block"
+        overlay.classList.add("active")
+    }
+
+    // close form login
+    exitIcon.onclick = () => {
+        overlay.classList.remove("active")
+        form.style.display = "none"
+    }
+    overlay.onclick = () => {
+        overlay.classList.remove("active")
+        form.style.display = "none"
+    }
+
+    // go to create account
+    goToRegister.onclick = () => {
+        register.classList.add("active")
+        login.classList.remove("active")
+    }
+
+    // go to login
+    goToLogin.onclick = () => {
+        register.classList.remove("active")
+        login.classList.add("active")
+    }
+}
+
 window.onload = () => {
     updateList()
+    formLogin()
 
     const timeStampHoursNode = document.querySelector(".time.time__hours")
     const timeStampDayNode = document.querySelector(".time.time__day")
@@ -277,7 +366,7 @@ window.onload = () => {
     const timeStampYearNode = document.querySelector(".time__year")
     const buttonContainer = document.querySelectorAll(".button__container")
     const dashboardChildNode = document.querySelector(".dashboard__child")
-    const overLayNode = document.querySelector(".dashboard__overlay")
+    const overlayNode = document.querySelector(".dashboard__overlay")
     const exitIconNode = document.querySelector(".times-exit")
 
     // change timestamp
@@ -316,56 +405,4 @@ window.onload = () => {
         timeStampYearNode.classList.add("time__selected")
         updateList()
     }
-
-    // click button open dashboard
-    buttonContainer.forEach((button) => {
-        button.onclick = () => {
-            dashboardChildNode.classList.add("active")
-            overLayNode.classList.add("active")
-        }
-    })
-
-    // click remove dashboard and overLay
-    overLayNode.onclick = () => {
-        dashboardChildNode.classList.remove("active")
-        overLayNode.classList.remove("active")
-    }
-    // click remove dashboard and overLay
-    exitIconNode.onclick = () => {
-        dashboardChildNode.classList.remove("active")
-        overLayNode.classList.remove("active")
-    }
 }
-
-function formLogin () {
-    const iconLogin = document.getElementById('login')
-    const formLogin = document.querySelector('.form__container')
-    const login = document.querySelector('.login__form')
-    const createAccount = document.querySelector('.create__form')
-    const goToLogin = document.querySelector('.goTo__login')
-    const iconExit = document.querySelector('.form__exit')
-    const goToCreateAccount = document.querySelector('.create__account')
-    // open form login
-    iconLogin.onclick = () => {
-        formLogin.style.display = "block"
-    }
-
-    // close form login
-    iconExit.onclick = () => {
-        formLogin.style.display = "none"
-    }
-
-    // go to create account
-    goToCreateAccount.onclick = () => {
-        createAccount.classList.add("active")
-        login.classList.remove("active")
-    }
-
-    // go to login
-    goToLogin.onclick = () => {
-        createAccount.classList.remove("active")
-        login.classList.add("active")
-    }
-}
-
-formLogin()
