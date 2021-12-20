@@ -108,9 +108,43 @@ body {
 }
 
 /* form login start */
+.form__container {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* height: 40vh; */
+    width:50%;
+    z-index: 9999999999;
+    border-radius: 20px;
+    background-color: #fff;
+    padding:30px;
+    display:none;
+}
+
+.form__exit {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -10px;
+}
+#exit {
+    font-size: 16px;
+    cursor: pointer;
+
+}
 .login__form {
-    /* height: 40vh;
-    background-color: #fff; */
+    display:none;
+}
+.login__form.active {
+    display: block;
+}
+
+.create__form {
+    display:none;
+}
+.create__form.active {
+    display: block;
 }
 /* form login end */
 
@@ -156,8 +190,10 @@ body {
     color: var(--color-text);
     font-weight: 600;
     margin: 7px 0px;
+    margin-bottom: 15px;
 }
 .link {
+    
     color: var(--color-white);
     font-size: 16px;
     font-weight: 600;
@@ -165,7 +201,7 @@ body {
 .repositories {
     font-size: 16px;
     font-weight: 600;
-    margin: 7px 0px;
+    margin: 15px 0px;
 }
 .time__item {
     color: var(--color-text);
@@ -294,7 +330,154 @@ body {
     font-weight: 600;
     cursor: pointer;
 }
+.login__title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 30px;
+}
+.login__email {
+    display:flex;
+    flex-direction: column;
+}
+.label__email {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
 
+#nameEmail {
+    padding: 8px 10px;
+    border-radius: 10px;
+    outline: none;
+    border-color:#555452;
+    transition: 0.4s;
+}
+#nameEmail:focus {
+    border-color:#ffb347;
+    transition: 0.4s;
+}
+.login__password {
+    display:flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.label__password {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+#password {
+    padding: 8px 10px;
+    border-radius: 10px;
+    outline: none;
+    border-color:#555452;
+    transition: 0.4s;
+}
+#forget {
+    margin-top: 5px;
+    color:var(--color-text);
+    cursor: pointer;
+}
+#password:focus {
+    border-color:#ffb347;
+    transition: 0.4s;
+}
+.login__button {
+    display:flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+.button__login {
+    padding: 8px 10px;
+    border-radius: 10px;
+    color:var(--color-text);
+    outline: none;
+    border:none;
+    background-color: var(--color-black);
+    cursor: pointer;
+}
+.login__or {
+    text-align: center;
+    margin-top: 10px;
+    color: var(--color-text);
+    font-size: 14px;
+}
+.new__account--container {
+    margin-top: 30px;
+    text-align: center;
+
+}
+#new__account {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-black);
+}
+.form__create--account {
+    display:flex;
+    flex-direction: column;
+}
+.create__account {
+    color: var(--color-text);
+    font-size: 16px;
+    font-weight: 600;
+}
+.goTo__login {
+    color: var(--color-text);
+    font-size: 16px;
+    font-weight: 600;
+}
+.label__password-create {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+#createAccount {
+    padding: 8px 10px;
+    border-radius: 10px;
+    outline: none;
+    border-color:#555452;
+    transition: 0.4s;
+}
+.create__password {
+    display:flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+#create__password {
+    padding: 8px 10px;
+    border-radius: 10px;
+    outline: none;
+    border-color:#555452;
+    transition: 0.4s;
+    
+}
+
+#create__password:focus {
+    border-color:#ffb347;
+    transition: 0.4s;
+}
+#createAccount:focus {
+    border-color:#ffb347;
+    transition: 0.4s;
+}
+.label__password-check {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+#create__password-check {
+    padding: 8px 10px;
+    border-radius: 10px;
+    outline: none;
+    border-color:#555452;
+    transition: 0.4s;
+}
+#create__password-check:focus {
+    border-color:#ffb347;
+    transition: 0.4s;
+}
 /* tablet big */
 @media (min-width: 1024px) and (max-width: 1365px) {
     .dashBoard__border {
@@ -348,5 +531,9 @@ body {
     .button_go {
         padding: 2px 5px;
         font-size: 10px;
+    }
+    .button__login {
+        width:100%;
+        text-align: center;
     }
 }

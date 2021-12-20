@@ -43,16 +43,72 @@
                             </div>
 
                             <div id="login" class="active">
-                                <h4 class="login__user">Login</h4>
+                                <h4 class="login__user">Đăng nhập</h4>
                             </div>
 
-                            <form
-                                class="login__form"
-                                action="#"
-                                method="post"
-                            ></form>
+                            
                         </div>
+                        <div class="form__container">
+                            <div class="form__exit">
+                                <i class="fas fa-times" id="exit"></i>
+                            </div>
+                           <!-- form login -->
+                            <form class="login__form active" action="#" method="post">
+                                <h3 class="login__title">Đăng nhập</h3>
 
+                                <div class="login__email">
+                                    <label class="label__email" for="nameEmail">Đăng nhập</label>
+                                    <input type="text" name="nameEmail" id="nameEmail" placeholder="Nhập email...">
+                                </div>
+
+                                <div class="login__password">
+                                    <label class="label__password" for="password">Mật khẩu</label>
+                                    <input type="password" name="password" id="password" placeholder="Nhập password...">
+                                    <span id="forget">Quên mật khẩu ?</span>
+                                </div>
+
+                                <div class="login__button">
+                                    <button type="submit" class="button__login">Đăng nhập</button>
+                                </div>
+
+                                <div class="new__account--container">
+                                    <span id="new__account">Tạo mới tài khoản? </span>
+                                    <span> <a href="#" class="create__account">Đăng ký.</a> </span>
+                                </div>
+
+                            </form>
+
+                            <!-- form create account -->
+                            <form class="create__form" action="#" method="post">
+                                <h3 class="login__title">Đăng ký</h3>
+
+                                <div class="form__create--account">
+                                    <label class="label__email" for="createAccount">Đăng nhập</label>
+                                    <input type="text" name="createAccount" id="createAccount" placeholder="Nhập email...">
+                                </div>
+
+                                <div class="create__password">
+                                    <label class="label__password-create" for="password">Mật khẩu</label>
+                                    <input type="password" name="password" id="create__password" placeholder="Nhập password...">
+                                  
+                                </div>
+                                <div class="create__password">
+                                    <label class="label__password-check" for="password">Nhập lại mật khẩu</label>
+                                    <input type="password" name="password" id="create__password-check" placeholder="Nhập password...">
+                                  
+                                </div>
+
+                                <div class="login__button">
+                                    <button type="submit" class="button__login">Đăng ký</button>
+                                </div>
+
+                                <div class="new__account--container">
+                                    <span id="new__account">Bạn đã có tài khoản? </span>
+                                    <span> <a href="#" class="goTo__login">Đăng nhập.</a> </span>
+                                </div>
+
+                            </form>
+                       </div>
                         <!-- dashboard list item -->
                         <div class="dashboard__list">
                             <div class="list__item">

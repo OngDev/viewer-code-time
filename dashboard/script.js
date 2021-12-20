@@ -336,3 +336,36 @@ window.onload = () => {
         overLayNode.classList.remove("active")
     }
 }
+
+function formLogin () {
+    const iconLogin = document.getElementById('login')
+    const formLogin = document.querySelector('.form__container')
+    const login = document.querySelector('.login__form')
+    const createAccount = document.querySelector('.create__form')
+    const goToLogin = document.querySelector('.goTo__login')
+    const iconExit = document.querySelector('.form__exit')
+    const goToCreateAccount = document.querySelector('.create__account')
+    // open form login
+    iconLogin.onclick = () => {
+        formLogin.style.display = "block"
+    }
+
+    // close form login
+    iconExit.onclick = () => {
+        formLogin.style.display = "none"
+    }
+
+    // go to create account
+    goToCreateAccount.onclick = () => {
+        createAccount.classList.add("active")
+        login.classList.remove("active")
+    }
+
+    // go to login
+    goToLogin.onclick = () => {
+        createAccount.classList.remove("active")
+        login.classList.add("active")
+    }
+}
+
+formLogin()
