@@ -303,14 +303,6 @@ const loginAction = async function (e) {
     console.log("login")
 }
 
-const registerAction = function (e) {
-    e.preventDefault()
-    const email = e.target.createAccount.value
-    const pass = e.target.password.value
-    const passAgain = e.target.passwordAgain.value
-    console.log("register")
-}
-
 const formLogin = function () {
     const iconLogin = document.querySelector(".login")
     const form = document.querySelector(".form__container")
@@ -323,9 +315,6 @@ const formLogin = function () {
 
     // set login submission
     login.onsubmit = (e) => loginAction(e)
-
-    // set register submission
-    register.onsubmit = (e) => registerAction(e)
 
     // open form login
     iconLogin.onclick = () => {
@@ -342,18 +331,6 @@ const formLogin = function () {
         overlay.classList.remove("active")
         form.style.display = "none"
     }
-
-    // go to create account
-    goToRegister.onclick = () => {
-        register.classList.add("active")
-        login.classList.remove("active")
-    }
-
-    // go to login
-    goToLogin.onclick = () => {
-        register.classList.remove("active")
-        login.classList.add("active")
-    }
 }
 
 window.onload = () => {
@@ -364,10 +341,6 @@ window.onload = () => {
     const timeStampDayNode = document.querySelector(".time.time__day")
     const timeStampMonthNode = document.querySelector(".time__month")
     const timeStampYearNode = document.querySelector(".time__year")
-    const buttonContainer = document.querySelectorAll(".button__container")
-    const dashboardChildNode = document.querySelector(".dashboard__child")
-    const overlayNode = document.querySelector(".dashboard__overlay")
-    const exitIconNode = document.querySelector(".times-exit")
 
     // change timestamp
     timeStampHoursNode.onclick = () => {

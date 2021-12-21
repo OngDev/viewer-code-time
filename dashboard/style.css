@@ -138,13 +138,6 @@ body {
 .login__form.active {
     display: block;
 }
-
-.create__form {
-    display: none;
-}
-.create__form.active {
-    display: block;
-}
 /* form login end */
 
 .dashboard__list {
@@ -240,20 +233,19 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     width: 30%;
     border-radius: 20px;
     height: 500px;
     background-color: var(--color-white);
-    display: none;
     z-index: 9999999;
     transition: 0.4s;
     padding: 35px 10px 10px 10px;
     overflow: hidden;
+    transform: translate(-50%, -50%) scale(0);
 }
 
 .dashboard__child.active {
-    display: block;
+    transform: translate(-50%, -50%) scale(1);
     transition: 0.4s;
 }
 
@@ -401,79 +393,7 @@ body {
     color: var(--color-text);
     font-size: 14px;
 }
-.new__account--container {
-    margin-top: 30px;
-    text-align: center;
-}
-#new__account {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-black);
-}
-.form__create--account {
-    display: flex;
-    flex-direction: column;
-}
-.create__account {
-    color: var(--color-text);
-    font-size: 16px;
-    font-weight: 600;
-}
-.goTo__login {
-    color: var(--color-text);
-    font-size: 16px;
-    font-weight: 600;
-}
-.label__password-create {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
 
-#createAccount {
-    padding: 8px 10px;
-    border-radius: 10px;
-    outline: none;
-    border-color: #555452;
-    transition: 0.4s;
-}
-.create__password {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-}
-#create__password {
-    padding: 8px 10px;
-    border-radius: 10px;
-    outline: none;
-    border-color: #555452;
-    transition: 0.4s;
-}
-
-#create__password:focus {
-    border-color: #ffb347;
-    transition: 0.4s;
-}
-#createAccount:focus {
-    border-color: #ffb347;
-    transition: 0.4s;
-}
-.label__password-check {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-#create__password-check {
-    padding: 8px 10px;
-    border-radius: 10px;
-    outline: none;
-    border-color: #555452;
-    transition: 0.4s;
-}
-#create__password-check:focus {
-    border-color: #ffb347;
-    transition: 0.4s;
-}
 /* tablet big */
 @media (min-width: 1024px) and (max-width: 1365px) {
     .dashBoard__border {
