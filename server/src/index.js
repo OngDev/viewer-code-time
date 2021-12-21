@@ -30,10 +30,10 @@ var jwtCheck = jwt({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
-    jwksUri: "https://dev-ka13b5i3.us.auth0.com/.well-known/jwks.json",
+    jwksUri: "https://dev-2ww2gna5.eu.auth0.com/.well-known/jwks.json",
   }),
-  audience: "this is a unique indentifier",
-  issuer: "https://dev-ka13b5i3.us.auth0.com/",
+  audience: "https://ahihi.ongdev.com/",
+  issuer: "https://dev-2ww2gna5.eu.auth0.com/",
   algorithms: ["RS256"],
 });
 
