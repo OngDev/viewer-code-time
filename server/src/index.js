@@ -25,8 +25,7 @@ const port = process.env.PORT || 3333;
 app.use(express.json());
 app.use(cors());
 
-//auth middleware
-const jwtCheck = jwt({
+var jwtCheck = jwt({
   secret: jwks.expressJwtSecret({
     cache: true,
     rateLimit: true,
@@ -40,10 +39,10 @@ const jwtCheck = jwt({
 
 //router
 app.use("/api/auth", authRouter);
-app.use("/api/user", userRouter);
+app.use("/api/users", userRouter);
 app.use("/api/duration", durationRouter);
 
-app.use("/api", (req, res) => {
+app.use("/api", jwtCheck, (req, res) => {
   res.send("halo");
 });
 

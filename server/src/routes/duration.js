@@ -5,42 +5,43 @@ const Duration = require("../models/duration");
 
 //post duration
 router.post("/", async (req, res) => {
-  const now = moment(new Date()).format();
-  const startDate = moment(now).startOf("date").format();
-  const endDate = moment(now).endOf("date").format();
+  const now = moment(new Date());
+  const dayStart = moment(now).startOf("date");
+  const dayEnd = moment(now).endOf("date");
 
   try {
     const recordExist = await Duration.findOne({
-      user: req.body.userId,
+      user: req.body.nickname,
       date: {
-        $gte: startDate,
-        $lte: endDate,
+        $gte: dayStart,
+        $lte: dayEnd,
       },
     });
 
     if (recordExist) {
-      const savedDuration = await Duration.findOneAndUpdate(
+      await Duration.findOneAndUpdate(
         {
-          user: req.body.userId,
+          user: req.body.nickname,
           date: {
-            $gte: startDate,
-            $lte: endDate,
+            $gte: dayStart,
+            $lte: dayEnd,
           },
         },
         {
           $inc: { duration: +req.body.duration },
+          date: now,
         }
       );
 
-      res.status(200).json(savedDuration);
+      res.status(200).json({ message: "submit duration success" });
     } else {
       const duration = new Duration({
-        user: req.body.userId,
+        user: req.body.nickname,
         duration: req.body.duration,
       });
 
-      const savedDuration = await duration.save();
-      res.status(200).json(savedDuration);
+      await duration.save();
+      res.status(200).json({ message: "submit duration success" });
     }
   } catch (error) {
     res.status(400).json({ message: error });

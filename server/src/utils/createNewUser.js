@@ -5,7 +5,7 @@ const getUserFromGithub = async (nickname) => {
     const user = await axios.get(`https://api.github.com/users/${nickname}`);
     return {
       nickname: user.data.login,
-      name: user.data.name,
+      name: user.data.name || user.data.login,
       url: user.data.html_url,
       avatarUrl: user.data.avatar_url,
     };

@@ -9,14 +9,14 @@ router.post("/login", async (req, res) => {
 
   //check user is already in db
   const userExist = await User.findOne({ nickname });
-  if (userExist) return res.status(200).json(userExist);
+  if (userExist) return res.status(200).json({ message: "login success" });
 
   //create new user
   try {
-    const newUser = await createNewUser(req.body.nickname);
+    const newUser = await createNewUser(nickname);
     const user = new User(newUser);
-    const savedUser = await user.save();
-    res.status(200).json(savedUser);
+    await user.save();
+    res.status(200).json({ message: "login success" });
   } catch (error) {
     res.status(400).json({ message: error });
   }
