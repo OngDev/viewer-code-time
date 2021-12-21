@@ -2,12 +2,14 @@ const axios = require("axios");
 
 const getUserFromGithub = async (nickname) => {
   try {
-    const user = await axios.get(`https://api.github.com/users/${nickname}`);
+    const response = await axios.get(
+      `https://api.github.com/users/${nickname}`
+    );
     return {
-      nickname: user.data.login,
-      name: user.data.name || user.data.login,
-      url: user.data.html_url,
-      avatarUrl: user.data.avatar_url,
+      nickname: response.data.login,
+      name: response.data.name || user.data.login,
+      url: response.data.html_url,
+      avatarUrl: response.data.avatar_url,
     };
   } catch (error) {
     console.log(error);
@@ -17,11 +19,11 @@ const getUserFromGithub = async (nickname) => {
 
 const getReposFromGithub = async (nickname) => {
   try {
-    const repos = await axios.get(
+    const response = await axios.get(
       `https://api.github.com/users/${nickname}/repos`
     );
 
-    const newRepos = repos.data.map((repo) => {
+    const newRepos = response.data.map((repo) => {
       return {
         name: repo.name,
         link: repo.url,
