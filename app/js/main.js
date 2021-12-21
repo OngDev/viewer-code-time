@@ -1,22 +1,40 @@
-// const path = require('path');
-const { app, BrowserWindow } = require('electron');
-const { url } = require('url');
+const electron = require('electron')
+const url = require('url');
 const path = require('path');
 
+const { app, BrowserWindow, Menu, ipcMain } = electron;
 
 const createWindow = () => {
     const win = new BrowserWindow({
         width: 800,
         height: 600,
         webPreferences: {
+            nodeIntegration: true,
             preload: path.join(__dirname, 'preload.js')
-        }
+        },
     });
 
-    win.loadFile("index.html");
+    const menuTemplate = [{
+            label: 'file',
+            submenu: [
+                { role: 'quit' },
+                { role: 'close' }
+            ]
+        },
+        {
+            label: 'tools',
+            submenu: [
+                { role: 'toggleDevTools' }
+            ]
+        },
+    ];
+    const menu = Menu.buildFromTemplate(menuTemplate);
+    Menu.setApplicationMenu(menu);
+    win.loadFile('index.html');
 };
 
-app.whenReady().then(() => {
+
+app.on('ready', () => {
     createWindow();
 
     app.on('activate', () => {
@@ -24,8 +42,10 @@ app.whenReady().then(() => {
             createWindow()
         }
     })
-});
+})
 
 app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') app.quit()
+    if (process.platform !== 'darwin') {
+        app.quit()
+    }
 })
