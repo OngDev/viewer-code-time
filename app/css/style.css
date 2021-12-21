@@ -9,6 +9,10 @@
         box-sizing: inherit;
     }
     
+    p {
+        margin: 0;
+    }
+    
     a,
     a:visited,
     a:hover {
@@ -115,6 +119,7 @@
     .row-btn-time {
         width: 90% !important;
         margin-bottom: 20px;
+        margin-top: 20px;
     }
     
     .title {
@@ -133,16 +138,17 @@
         border: 0px solid;
         color: #ffffff;
         font-weight: 600;
+        cursor: pointer;
     }
     
-    .btn-start {
+    #btn_start {
         background: #111111;
     }
     
-    .btn-pause {
+    #btn_pause {
         background: rgba(245, 160, 40, 0.75);
     }
     
-    .btn-stop {
+    #btn_reset {
         background: #FD6259;
     }

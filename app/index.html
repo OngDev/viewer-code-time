@@ -7,11 +7,9 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
     <script src="./js/main.js"></script>
     <script src="./js/preload.js"></script>
+    <script src="./js/renderer.js"></script>
     <title>Viewer code time app</title>
 </head>
 
@@ -35,38 +33,32 @@
                     </div>
                     <div class="row row-title-text">
                         <div class="col">
-                            <p class="numTime numTime-hours">00</p>
-                            <p style="margin: 0">Hours</p>
+                            <p class="numTime numTime-hours" id="t_h">00</p>
+                            <p>Hours</p>
                         </div>
                         <div class="col">
-                            <p class="numTime numTime-hours">00</p>
-                            <p style="margin: 0">Minutes</p>
+                            <p class="numTime numTime-minutes" id="t_m">00</p>
+                            <p>Minutes</p>
                         </div>
                         <div class="col">
-                            <p class="numTime numTime-hours">00</p>
-                            <p style="margin: 0">Seconds</p>
+                            <p class="numTime numTime-seconds" id="t_s">00</p>
+                            <p>Seconds</p>
                         </div>
                     </div>
                     <div class="row row-btn-time">
                         <div class="col-sm">
-                            <button class="btn-time btn-start">
-                                <span>
+                            <button class="btn-time" id="btn_start">
                                     Start
-                                </span>
                             </button>
                         </div>
                         <div class="col-sm">
-                            <button class="btn-time btn-pause">
-                                <span>
+                            <button class="btn-time" id="btn_pause">
                                     Pause
-                                </span>
                             </button>
                         </div>
                         <div class="col-sm">
-                            <button class="btn-time btn-stop">
-                                <span>
-                                    Stop
-                                </span>
+                            <button class="btn-time" id="btn_reset">
+                                    Reset
                             </button>
                         </div>
                     </div>
