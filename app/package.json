@@ -1,19 +1,19 @@
 {
-  "name": "app-viewer-code-time",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "electron ."
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "electron": "^16.0.5"
-  },
-  "dependencies": {
-    "axios": "^0.24.0",
-    "jwt-decode": "^3.1.2"
-  }
+    "name": "app-viewer-code-time",
+    "version": "1.0.0",
+    "description": "",
+    "main": "./js/main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "electron": "^16.0.5"
+    },
+    "dependencies": {
+        "axios": "^0.24.0",
+        "jwt-decode": "^3.1.2"
+    }
 }
