@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script src="./js/main.js"></script>
+    <script src="./js/preload.js"></script>
+    <script src="./js/renderer.js"></script>
+    <title>Viewer code time app</title>
+</head>
+
+<body>
+    <header class="header">
+        <button class="btn-login">
+              <a href="#" class="text-login">
+                  <span class="login">login</span>
+             </a>
+        </button>
+    </header>
+    <content>
+        <div class="container">
+            <div class="box box_inner">
+                <div class="content-logo">
+                    <img src="./assest/images/SecondaryLogo.png" alt="seconLogo">
+                </div>
+                <div class="content-box-time">
+                    <div class="title">
+                        <h3>TIMER</h3>
+                    </div>
+                    <div class="row row-title-text">
+                        <div class="col">
+                            <p class="numTime numTime-hours" id="t_h">00</p>
+                            <p>Hours</p>
+                        </div>
+                        <div class="col">
+                            <p class="numTime numTime-minutes" id="t_m">00</p>
+                            <p>Minutes</p>
+                        </div>
+                        <div class="col">
+                            <p class="numTime numTime-seconds" id="t_s">00</p>
+                            <p>Seconds</p>
+                        </div>
+                    </div>
+                    <div class="row row-btn-time">
+                        <div class="col-sm">
+                            <button class="btn-time" id="btn_start">
+                                    Start
+                            </button>
+                        </div>
+                        <div class="col-sm">
+                            <button class="btn-time" id="btn_pause">
+                                    Pause
+                            </button>
+                        </div>
+                        <div class="col-sm">
+                            <button class="btn-time" id="btn_reset">
+                                    Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </content>
+</body>
+
+</html>
