@@ -9,7 +9,7 @@ const createNewUser = require("../utils/createNewUser");
 router.post("/login", async (req, res) => {
   try {
     const response = await axios.get(
-      `${process.env.AUTH0_DOMAIN_URL}/userinfo`,
+      `https://${process.env.AUTH0_DOMAIN_URL}/userinfo`,
       {
         headers: {
           authorization: req.headers.authorization,
