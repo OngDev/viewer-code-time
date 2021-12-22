@@ -1,5 +1,5 @@
 const apiUrl = ""
-let timeStamp = "hour" // hour / day / month / year
+let timeStamp = "date" // date - week - month - year
 
 const updateList = async function () {
     // const usersInfo = await fetch(`${apiUrl}/users?by=${timeStamp}`).then(response => response.json())
@@ -308,10 +308,7 @@ const formLogin = function () {
     const form = document.querySelector(".form__container")
     const overlay = document.querySelector(".dashboard__overlay")
     const login = document.querySelector(".login__form")
-    const register = document.querySelector(".create__form")
-    const goToLogin = document.querySelector(".goTo__login")
     const exitIcon = document.querySelector(".form__exit")
-    const goToRegister = document.querySelector(".create__account")
 
     // set login submission
     login.onsubmit = (e) => loginAction(e)
@@ -337,45 +334,53 @@ window.onload = () => {
     updateList()
     formLogin()
 
-    const timeStampHoursNode = document.querySelector(".time.time__hours")
     const timeStampDayNode = document.querySelector(".time.time__day")
+    const timeStampWeekNode = document.querySelector(".time.time__week")
     const timeStampMonthNode = document.querySelector(".time__month")
     const timeStampYearNode = document.querySelector(".time__year")
 
     // change timestamp
-    timeStampHoursNode.onclick = () => {
-        timeStamp = "hour"
-        timeStampHoursNode.classList.add("time__selected")
-        timeStampDayNode.classList.remove("time__selected")
-        timeStampMonthNode.classList.remove("time__selected")
-        timeStampYearNode.classList.remove("time__selected")
-        updateList()
+    timeStampDayNode.onclick = () => {
+        if (timeStamp !== "date") {
+            timeStamp = "date"
+            timeStampDayNode.classList.add("time__selected")
+            timeStampWeekNode.classList.remove("time__selected")
+            timeStampMonthNode.classList.remove("time__selected")
+            timeStampYearNode.classList.remove("time__selected")
+            updateList()
+        }
     }
 
-    timeStampDayNode.onclick = () => {
-        timeStamp = "day"
-        timeStampHoursNode.classList.remove("time__selected")
-        timeStampDayNode.classList.add("time__selected")
-        timeStampMonthNode.classList.remove("time__selected")
-        timeStampYearNode.classList.remove("time__selected")
-        updateList()
+    timeStampWeekNode.onclick = () => {
+        if (timeStamp !== "week") {
+            timeStamp = "week"
+            timeStampDayNode.classList.remove("time__selected")
+            timeStampWeekNode.classList.add("time__selected")
+            timeStampMonthNode.classList.remove("time__selected")
+            timeStampYearNode.classList.remove("time__selected")
+            updateList()
+        }
     }
 
     timeStampMonthNode.onclick = () => {
-        timeStamp = "month"
-        timeStampHoursNode.classList.remove("time__selected")
-        timeStampDayNode.classList.remove("time__selected")
-        timeStampMonthNode.classList.add("time__selected")
-        timeStampYearNode.classList.remove("time__selected")
-        updateList()
+        if (timeStamp !== "month") {
+            timeStamp = "month"
+            timeStampDayNode.classList.remove("time__selected")
+            timeStampWeekNode.classList.remove("time__selected")
+            timeStampMonthNode.classList.add("time__selected")
+            timeStampYearNode.classList.remove("time__selected")
+            updateList()
+        }
     }
 
     timeStampYearNode.onclick = () => {
-        timeStamp = "year"
-        timeStampHoursNode.classList.remove("time__selected")
-        timeStampDayNode.classList.remove("time__selected")
-        timeStampMonthNode.classList.remove("time__selected")
-        timeStampYearNode.classList.add("time__selected")
-        updateList()
+        if (timeStamp !== "year") {
+            timeStamp = "year"
+            timeStampDayNode.classList.remove("time__selected")
+            timeStampWeekNode.classList.remove("time__selected")
+            timeStampMonthNode.classList.remove("time__selected")
+            timeStampYearNode.classList.add("time__selected")
+            updateList()
+        }
     }
 }
