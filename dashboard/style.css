@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -43,6 +44,14 @@ body {
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
+}
+.dashboard__logo {
+    position: absolute;
+    padding:15px 15px;
+    cursor: pointer;
+}
+.dashboard__logo-image {
+    width: 10%;
 }
 
 .dashboard__times {
@@ -114,7 +123,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     /* height: 40vh; */
-    width: 50%;
+    width: 30%;
     z-index: 9999999999;
     border-radius: 20px;
     background-color: #fff;
@@ -412,6 +421,9 @@ body {
     .dashboard__child {
         width: 60%;
     }
+    .form__container {
+        width:60%;
+    }
 }
 
 /* tablet small */
@@ -427,6 +439,9 @@ body {
     }
     .dashboard__child {
         width: 60%;
+    }
+    .form__container {
+        width:60%;
     }
 }
 
@@ -461,5 +476,72 @@ body {
     .button__login {
         width: 100%;
         text-align: center;
+    }
+    .form__container {
+        width:60%;
+    }
+    .dashboard__logo-image {
+        width:20%;
+    }
+}
+
+
+/* iphone X */
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3) {
+
+        .time {
+            margin-top: 5px;
+            padding:5px 3px;
+            
+        }
+}
+
+/* iphone 8 plus */
+@media only screen 
+    and (device-width : 414px) 
+    and (device-height : 736px) 
+    and (-webkit-device-pixel-ratio : 3) {
+        
+        .time {
+            margin-top: 5px;
+            /* padding:5px 3px; */
+            
+        }
+        .dashboard__list  {
+            top: 5%;
+        }
+}
+
+/* iphone 6/7/8 */
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 667px) 
+    and (-webkit-device-pixel-ratio : 2) { 
+        .time {
+            margin-top: 10px;
+            padding:5px 3px;
+            
+        }
+        .dashboard__list  {
+            top: 7%;
+        }
+}
+
+/* iphone 5 */
+@media screen and (device-aspect-ratio: 40/71) {
+    .time {
+        margin-top: 15px;
+        padding:5px 3px;
+        margin-left: 10px;
+        
+    }
+    .dashboard__list  {
+        top: 7%;
+    }
+    .dashBoard__login  {
+        height: 29px;
     }
 }
