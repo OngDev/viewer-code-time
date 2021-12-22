@@ -183,6 +183,16 @@ body {
     font-weight: 600;
     margin: 7px 0px;
     margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+.item__name-avatar {
+    max-width: 35px;
+    border-radius: 50%;
+}
+.item__name-name {
+    margin-left: 5px;
+    min-width: fit-content;
 }
 .link {
     color: var(--color-white);

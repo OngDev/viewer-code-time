@@ -1,144 +1,155 @@
-const apiUrl = ""
+const apiUrl = "http://localhost:3333/api"
 let timeStamp = "date" // date - week - month - year
 
 const updateList = async function () {
-    // const usersInfo = await fetch(`${apiUrl}/users?by=${timeStamp}`).then(response => response.json())
-    const usersInfo = [
+    const usersInfo = await fetch(`${apiUrl}/users?by=${timeStamp}`).then(
+        (response) => response.json()
+    )
+    const usersInfoTest = [
         {
-            fullName: "Phạm Công",
-            username: "PhamCong01",
+            name: "Phạm Công",
+            nickname: "PhamCong01",
             url: "https://github.com/PhamCong01",
+            avatarUrl: "https://avatars.dicebear.com/api/male/john.svg",
             repos: [
                 {
                     name: "Repo 1",
                     description:
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tellus urna, porta non ligula id, pellentesque iaculis mauris. Aliquam quis nisl eget sem dapibus feugiat nec eget sapien. Nam pellentesque sem augue, in aliquet metus imperdiet a. Mauris sit amet malesuada justo, sed lobortis nunc",
-                    url: "https://github.com/PhamCong01/weather-app",
+                    link: "https://github.com/PhamCong01/weather-app",
                 },
                 {
                     name: "Repo 1",
                     description:
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tellus urna, porta non ligula id, pellentesque iaculis mauris. Aliquam quis nisl eget sem dapibus feugiat nec eget sapien. Nam pellentesque sem augue, in aliquet metus imperdiet a. Mauris sit amet malesuada justo, sed lobortis nunc",
-                    url: "https://github.com/PhamCong01/weather-app",
+                    link: "https://github.com/PhamCong01/weather-app",
                 },
                 {
                     name: "Repo 1",
                     description:
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tellus urna, porta non ligula id, pellentesque iaculis mauris. Aliquam quis nisl eget sem dapibus feugiat nec eget sapien. Nam pellentesque sem augue, in aliquet metus imperdiet a. Mauris sit amet malesuada justo, sed lobortis nunc",
-                    url: "https://github.com/PhamCong01/weather-app",
+                    link: "https://github.com/PhamCong01/weather-app",
                 },
                 {
                     name: "Repo 1",
                     description:
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tellus urna, porta non ligula id, pellentesque iaculis mauris. Aliquam quis nisl eget sem dapibus feugiat nec eget sapien. Nam pellentesque sem augue, in aliquet metus imperdiet a. Mauris sit amet malesuada justo, sed lobortis nunc",
-                    url: "https://github.com/PhamCong01/weather-app",
+                    link: "https://github.com/PhamCong01/weather-app",
                 },
             ],
-            duration: 12,
+            totalTime: 12,
         },
         {
-            fullName: "Phạm Công",
-            username: "PhamCong01",
+            name: "Phạm Công",
+            nickname: "PhamCong01",
             url: "https://github.com/PhamCong01",
+            avatarUrl: "https://avatars.dicebear.com/api/male/john.svg",
             repos: [
                 {
                     name: "Repo 2",
                     description: "Repo2 description is too long",
-                    url: "https://github.com/PhamCong01/weather-app",
+                    link: "https://github.com/PhamCong01/weather-app",
                 },
             ],
-            duration: 12,
+            totalTime: 12,
         },
         {
-            fullName: "Phạm Công",
-            username: "PhamCong01",
+            name: "Phạm Công",
+            nickname: "PhamCong01",
             url: "https://github.com/PhamCong01",
+            avatarUrl: "https://avatars.dicebear.com/api/male/john.svg",
             repos: [
                 {
                     name: "Repo 2",
                     description: "Repo2 description is too long",
-                    url: "https://github.com/PhamCong01/weather-app",
+                    link: "https://github.com/PhamCong01/weather-app",
                 },
             ],
-            duration: 12,
+            totalTime: 12,
         },
         {
-            fullName: "Phạm Công",
-            username: "PhamCong01",
+            name: "Phạm Công",
+            nickname: "PhamCong01",
             url: "https://github.com/PhamCong01",
+            avatarUrl: "https://avatars.dicebear.com/api/male/john.svg",
             repos: [
                 {
                     name: "Repo 2",
                     description: "Repo2 description is too long",
-                    url: "https://github.com/PhamCong01/weather-app",
+                    link: "https://github.com/PhamCong01/weather-app",
                 },
             ],
-            duration: 12,
+            totalTime: 12,
         },
         {
-            fullName: "Phạm Công",
-            username: "PhamCong01",
+            name: "Phạm Công",
+            nickname: "PhamCong01",
             url: "https://github.com/PhamCong01",
+            avatarUrl: "https://avatars.dicebear.com/api/male/john.svg",
             repos: [
                 {
                     name: "Repo 2",
                     description: "Repo2 description is too long",
-                    url: "https://github.com/PhamCong01/weather-app",
+                    link: "https://github.com/PhamCong01/weather-app",
                 },
             ],
-            duration: 12,
+            totalTime: 12,
         },
         {
-            fullName: "Phạm Công",
-            username: "PhamCong01",
+            name: "Phạm Công",
+            nickname: "PhamCong01",
             url: "https://github.com/PhamCong01",
+            avatarUrl: "https://avatars.dicebear.com/api/male/john.svg",
             repos: [
                 {
                     name: "Repo 2",
                     description: "Repo2 description is too long",
-                    url: "https://github.com/PhamCong01/weather-app",
+                    link: "https://github.com/PhamCong01/weather-app",
                 },
             ],
-            duration: 12,
+            totalTime: 12,
         },
         {
-            fullName: "Phạm Công",
-            username: "PhamCong01",
+            name: "Phạm Công",
+            nickname: "PhamCong01",
             url: "https://github.com/PhamCong01",
+            avatarUrl: "https://avatars.dicebear.com/api/male/john.svg",
             repos: [
                 {
                     name: "Repo 2",
                     description: "Repo2 description is too long",
-                    url: "https://github.com/PhamCong01/weather-app",
+                    link: "https://github.com/PhamCong01/weather-app",
                 },
             ],
-            duration: 12,
+            totalTime: 12,
         },
         {
-            fullName: "Phạm Công",
-            username: "PhamCong01",
+            name: "Phạm Công",
+            nickname: "PhamCong01",
             url: "https://github.com/PhamCong01",
+            avatarUrl: "https://avatars.dicebear.com/api/male/john.svg",
             repos: [
                 {
                     name: "Repo 2",
                     description: "Repo2 description is too long",
-                    url: "https://github.com/PhamCong01/weather-app",
+                    link: "https://github.com/PhamCong01/weather-app",
                 },
             ],
-            duration: 12,
+            totalTime: 12,
         },
         {
-            fullName: "Phạm Công",
-            username: "PhamCong01",
+            name: "Phạm Công",
+            nickname: "PhamCong01",
             url: "https://github.com/PhamCong01",
+            avatarUrl: "https://avatars.dicebear.com/api/male/john.svg",
             repos: [
                 {
                     name: "Repo 2",
                     description: "Repo2 description is too long",
-                    url: "https://github.com/PhamCong01/weather-app",
+                    link: "https://github.com/PhamCong01/weather-app",
                 },
             ],
-            duration: 12,
+            totalTime: 12,
         },
     ]
 
@@ -157,12 +168,12 @@ const updateList = async function () {
         // username
         const userNameNode = document.createElement("li")
         userNameNode.className = "item__name"
-        userNameNode.innerHTML = `<i class="far fa-smile"></i> Name: ${user.fullName}`
+        userNameNode.innerHTML = `<img src="${user.avatarUrl}" class="item__name-avatar" /><div class="item__name-name"> Name: ${user.name}</div>`
 
         // user url
         const urlNode = document.createElement("li")
         urlNode.className = "item__url"
-        urlNode.innerHTML = `<a class="link" target="_blank" href="${user.url}">GitHub: ${user.username}</a>`
+        urlNode.innerHTML = `<a class="link" target="_blank" href="${user.url}">GitHub: ${user.nickname}</a>`
 
         // url public repos
         const publicRepos = document.createElement("li")
@@ -177,7 +188,7 @@ const updateList = async function () {
         // time div
         const timeNode = document.createElement("div")
         timeNode.className = "time__item"
-        timeNode.innerHTML = `${user.duration} hours`
+        timeNode.innerHTML = `${user.totalTime} hours`
 
         // create div for button
         const buttonContainer = document.createElement("div")
@@ -282,7 +293,7 @@ const renderChildDashboard = function (repos) {
         const goToBtnNode = document.createElement("button")
         goToBtnNode.innerHTML = "GO TO"
         goToBtnNode.className = "button_go"
-        goToBtnNode.onclick = () => window.open(repo.url)
+        goToBtnNode.onclick = () => window.open(repo.link)
 
         // append close btn to clost btn div node
         goToDivNode.appendChild(goToBtnNode)
