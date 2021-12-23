@@ -11,6 +11,9 @@ const RepoSchema = new Schema({
     type: String,
     required: true,
   },
+  description: {
+    type: String,
+  },
 });
 
 const UserSchema = new Schema({
@@ -21,9 +24,6 @@ const UserSchema = new Schema({
   name: {
     type: String,
     required: true,
-  },
-  url: {
-    type: String,
   },
   avatarUrl: {
     type: String,
