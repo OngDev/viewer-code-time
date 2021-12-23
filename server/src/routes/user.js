@@ -40,7 +40,7 @@ router.get("/", async (req, res) => {
         $lookup: {
           from: "durations",
           localField: "nickname",
-          foreignField: "user",
+          foreignField: "nickname",
           as: "durations",
         },
       },
@@ -48,7 +48,6 @@ router.get("/", async (req, res) => {
         $project: {
           nickname: 1,
           name: 1,
-          url: 1,
           avatarUrl: 1,
           repos: 1,
           durations: {
@@ -70,10 +69,14 @@ router.get("/", async (req, res) => {
         },
       },
       {
+        $match: {
+          totalTime: { $gt: 0 },
+        },
+      },
+      {
         $project: {
           nickname: 1,
           name: 1,
-          url: 1,
           avatarUrl: 1,
           repos: 1,
           totalTime: 1,
@@ -83,6 +86,10 @@ router.get("/", async (req, res) => {
         $sort: {
           totalTime: -1,
         },
+      },
+
+      {
+        $limit: 10,
       },
     ]);
 

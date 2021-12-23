@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
-const moment = require("moment");
 
 const { Schema, model } = mongoose;
 
 const DurationSchema = new Schema({
-  user: {
+  nickname: {
     type: String,
     required: true,
   },
@@ -14,7 +13,7 @@ const DurationSchema = new Schema({
   },
   date: {
     type: Date,
-    default: moment(new Date()).format(),
+    default: new Date(),
   },
 });
 

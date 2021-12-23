@@ -25,22 +25,22 @@ const port = process.env.PORT || 3333;
 app.use(express.json());
 app.use(cors());
 
-var jwtCheck = jwt({
+const jwtCheck = jwt({
   secret: jwks.expressJwtSecret({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
-    jwksUri: "https://dev-2ww2gna5.eu.auth0.com/.well-known/jwks.json",
+    jwksUri: `https://${process.env.AUTH0_DOMAIN_URL}/.well-known/jwks.json`,
   }),
-  audience: "https://ahihi.ongdev.com/",
-  issuer: "https://dev-2ww2gna5.eu.auth0.com/",
+  audience: process.env.AUTH0_AUDIENCE,
+  issuer: `https://${process.env.AUTH0_DOMAIN_URL}/`,
   algorithms: ["RS256"],
 });
 
 //router
-app.use("/api/auth", authRouter);
+app.use("/api/auth", jwtCheck, authRouter);
 app.use("/api/users", userRouter);
-app.use("/api/duration", durationRouter);
+app.use("/api/duration", jwtCheck, durationRouter);
 
 app.use("/api", jwtCheck, (req, res) => {
   res.send("halo");
