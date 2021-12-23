@@ -22,93 +22,37 @@
             <div class="dashBoard">
                 <div class="container">
                     <div class="dashBoard__border">
+                        <!-- logo -->
+                        <div class="dashboard__logo">
+                            <a href="index.html">
+                                <img class="dashboard__logo-image" src="https://ongdev.com/logo.png" alt="">
+                            </a>
+                        </div>
                         <!-- dashboard times -->
                         <div class="dashboard__times">
-                            <h5 class="time time__hours time__selected">
-                                1 giờ
+                            <h5 class="time time__day time__selected">
+                                1 ngày
                             </h5>
-                            <h5 class="time time__day">7 ngày</h5>
+                            <h5 class="time time__week">7 ngày</h5>
                             <h5 class="time time__month">1 tháng</h5>
                             <h5 class="time time__year">1 năm</h5>
                         </div>
                         <!-- login -->
                         <div class="dashBoard__login">
-                            <div class="login">
-                                <h4 class="login__name">Phạm Công</h4>
+                            <div class="account">
+                                <h4 class="account__name">Phạm Công</h4>
                                 <img
-                                    class="login__image"
+                                    class="account__image"
                                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAATlBMVEWVu9////+Rud6Ntt2LtdyPuN3H2u250emYveDq8fj6/P6zzeeKtNzz9/uiw+LQ4PDd6PTh6/WsyeXL3e/B1uvt8/mfweGvy+be6fTX5PJcXCnCAAAG9UlEQVR4nO2d2XKjMBBFTUvs+2Ji/v9HBznx2MTYBnRlNY7OVM3L1KS4EVKvag4Hh8PhcDgcDofD4XCwgsgnXwgx/k1k+2GwjNIk9U0XlEN1Gv8MZdA1PckPEUpCFEGVe/fkVVAIsXeRgsJTMqPuQlKHJGw/5HYoa05P1F04Ndk+F5KycO7dnCMPd6iRZPrs7bx7W1O5M41+H6/Qp4h73/ZDr0EGK/UpAmn7sZcj1i7gzzLuZRWpX7MDb0n6XWxGajbqUzQ7kKglcA8SqdAS6HkFe4maAj3PtoAXZEvdmMfkrP1UOWgL9LyBsV2kL4BAz/viuxX9rYZwSsLW8vslRKDnlVwlRiCBnhfZljKPqGAKK6bnKUwgU6MoULtQUXJcRAEU6HkMFVIIVRjys4myhiqMGTo2UIEMzxrwS8rwNfURPvctFTe/RuiHTVPYBVE4j+0CM8+NUrjClNdGpBausOWl0MdaQ0XN66iR6INmPGp42XxQdH8Ls0if4AI9j9c+xBsLz+tti7pFO9M9B6/sNyaNOIVVUhHudytY+d5OoVPoFNrHQGjBLbjQK23P09gWNcGIxbctaoIJr41XkP/5nrcwED3xSkXJI1zhkVkE/PFZDFiB+wqzUjd1cIUdr5NGs5ttDl4G/w/kvPHmglmqbXNb8GNiXubQwGHK7Cj9CxXSQw9WyCpbegac12d30MB7MWpeXqmCtlwieUzAbhuiE/u8UvrfZFCFmW05MwjkRqy52XsFNLxgFlj8gMzV2NYyDzCTceS4DaGvKUNbcebjO9lxERS7yOkCLL7gF1dcQJ2mbAUeBKbJdOAXV/wHEyTyCw2vQEIohoHTFUiAwS1ROiXTNxgxT3/mAmAROUaGt2jvRNa78Iyu68b5IP1GMzXMLhE8g1ZakWES8R6tQhurjsuHaPhuA9eg4hebG/eZtec/Y6NC24+9nI1bkf/klitiSywc7mQTfiPWZ6W6XQncIHFvAkeJ65pq090JVGHGcucm4R5QzEOHpXFGfdiPQJrYbLnsSA2n/4mzWsq66aQAotce3DCdRCvjju0gTOGrQvevYQh+9FzjEE2jCanSIIHP8Nwh0f8Ehr+nH4pD8MhPzYPDLymXwkDZ8xq/S8JPrymo490/yz6ofx+sSR3091vuWqCLU5+LSKKsKCfPn0R3jzb+Dvo0KE/x8XiMT2WQ9jPP/2ukZFIWmf1p0ffyzqRzYRDReZy3Gug9++Dy3kewLpLknLzzAbL+qHgQOI8irdkPEbWPQ928WKdRNE9+VhvZOFvl1wuPZTgszyr5hxd2s/5690Jm6YK2hGDhYUhiQcfYMX1ntt+PFpYn2vFUefnDxMKZGnH0tlSjXBH7DYV89ly+bFZk5ro3Zarkutl6ednM2+7RRjblurRc9RaJcn0BLanbphdSjkoVwpdS9F/tnZ/zmneMANtcXEryeijbIAjacqjzral/86Upib/gtI7SsEQjV5rXYfoCtG19nuHMOHBE6XaMlm9MXNlej8FL3oBOCwQGuzV4LKHBRQRfGtmOMaNoYqzANgx12IJvxehgqEvawNS5rZgphxuZ57UVI5UcA1fut2OksQg+g1UHI/Nb0ZdE9TDQ/mZgaoIOBi5GQa+m6WPgcht2qLw+cIWsbIUCbi+YbUMDG5FF7HsL/CMfGX4QlB4JOkg0McxLD/RbamKonh7giyeMIqcL4AjK53bQwD+eAPhiHJoce9Rw82gU0DVk59EosF6NiRmzuoRIgcQpvr9QIteQTab0FmjWVHLz2RQJNOFmW80sQH0sj1LoYWpkXLc+wNELBr6TgwD4rR2GXqkC6JkamBKMADhp2MB3chAAr9TyKRxOwZUReRoLZLXbfpvQPClKIMMUxjewRAaryuEtsCoiu2zwBVhWGD4FGQVsJhijFoUpsIYFA592wAD7QAS/jP4F1EnD1aXBOTW8ehRuQfUr8KvKXABVZxj0dj8C1PPNNIehAOUx2JXwr4CK+X9AIdfQAhZcOIUWQSn8+LP0D3htnx8fMi3MIEszTP025D09Wnp5+43EPbZlSBa80lFVgb9yISjkspBxSGbuIJKMOvsi4y4yOUHCtkjD8n5Ejq/ryYq80/hyvmn+B4msCN67lHFQZO+dqkQkRdPG78ikJnHbCGln1BBJKrrKZEY8r7qC7M6oU7Ofok0jLl6hhmlEaqaUTXn/UTLToEatZl4HaSRfj7Z5M+NqZqIJB629mcRD2IiMy8rNQb7MDk1YViunlyR5VYbNIeO3cvMQCelHhZpBd3wqNcmPaj5dEflSMF63R9C4or6yYlHRhF3QluVQVaeqGsqyDbqwKaLRsgp/XLX9abtHzRbyR8HiLElN3fsEVQ6Hw+FwOBwOh8PxOfwDT/dxGdSpqv0AAAAASUVORK5CYII="
                                     alt=""
                                 />
                             </div>
 
-                            <div id="login" class="active">
+                            <div class="login active">
                                 <h4 class="login__user">Đăng nhập</h4>
                             </div>
-
-                            
                         </div>
-                        <div class="form__container">
-                            <div class="form__exit">
-                                <i class="fas fa-times" id="exit"></i>
-                            </div>
-                           <!-- form login -->
-                            <form class="login__form active" action="#" method="post">
-                                <h3 class="login__title">Đăng nhập</h3>
 
-                                <div class="login__email">
-                                    <label class="label__email" for="nameEmail">Đăng nhập</label>
-                                    <input type="text" name="nameEmail" id="nameEmail" placeholder="Nhập email...">
-                                </div>
-
-                                <div class="login__password">
-                                    <label class="label__password" for="password">Mật khẩu</label>
-                                    <input type="password" name="password" id="password" placeholder="Nhập password...">
-                                    <span id="forget">Quên mật khẩu ?</span>
-                                </div>
-
-                                <div class="login__button">
-                                    <button type="submit" class="button__login">Đăng nhập</button>
-                                </div>
-
-                                <div class="new__account--container">
-                                    <span id="new__account">Tạo mới tài khoản? </span>
-                                    <span> <a href="#" class="create__account">Đăng ký.</a> </span>
-                                </div>
-
-                            </form>
-
-                            <!-- form create account -->
-                            <form class="create__form" action="#" method="post">
-                                <h3 class="login__title">Đăng ký</h3>
-
-                                <div class="form__create--account">
-                                    <label class="label__email" for="createAccount">Đăng nhập</label>
-                                    <input type="text" name="createAccount" id="createAccount" placeholder="Nhập email...">
-                                </div>
-
-                                <div class="create__password">
-                                    <label class="label__password-create" for="password">Mật khẩu</label>
-                                    <input type="password" name="password" id="create__password" placeholder="Nhập password...">
-                                  
-                                </div>
-                                <div class="create__password">
-                                    <label class="label__password-check" for="password">Nhập lại mật khẩu</label>
-                                    <input type="password" name="password" id="create__password-check" placeholder="Nhập password...">
-                                  
-                                </div>
-
-                                <div class="login__button">
-                                    <button type="submit" class="button__login">Đăng ký</button>
-                                </div>
-
-                                <div class="new__account--container">
-                                    <span id="new__account">Bạn đã có tài khoản? </span>
-                                    <span> <a href="#" class="goTo__login">Đăng nhập.</a> </span>
-                                </div>
-
-                            </form>
-                       </div>
                         <!-- dashboard list item -->
                         <div class="dashboard__list">
                             <div class="list__item">
@@ -117,8 +61,13 @@
                                     <div class="item__container">
                                         <div>
                                             <li class="item__name">
-                                                <i class="far fa-smile"></i>
-                                                Name: Phạm Công
+                                                <img
+                                                    src="https://avatars.dicebear.com/api/male/john.svg"
+                                                    class="item__name-avatar"
+                                                />
+                                                <p class="item__name-name">
+                                                    Name: Phạm Công
+                                                </p>
                                             </li>
                                             <li class="item__url">
                                                 <a
@@ -161,6 +110,46 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="form__container">
+                        <div class="form__exit">
+                            <i class="fas fa-times" id="exit"></i>
+                        </div>
+                        <!-- form login -->
+                        <form class="login__form active">
+                            <h3 class="login__title">Đăng nhập</h3>
+
+                            <div class="login__email">
+                                <label class="label__email" for="nameEmail"
+                                    >Đăng nhập</label
+                                >
+                                <input
+                                    type="text"
+                                    name="nameEmail"
+                                    id="nameEmail"
+                                    placeholder="Nhập email..."
+                                />
+                            </div>
+
+                            <div class="login__password">
+                                <label class="label__password" for="password"
+                                    >Mật khẩu</label
+                                >
+                                <input
+                                    type="password"
+                                    name="password"
+                                    id="password"
+                                    placeholder="Nhập password..."
+                                />
+                                <span id="forget">Quên mật khẩu ?</span>
+                            </div>
+
+                            <div class="login__button">
+                                <button type="submit" class="button__login">
+                                    Đăng nhập
+                                </button>
+                            </div>
+                        </form>
                     </div>
                     <div class="dashboard__overlay"></div>
                 </div>
