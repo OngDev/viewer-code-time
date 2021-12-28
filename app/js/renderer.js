@@ -1,65 +1,65 @@
-var hour = 00;
-var minute = 00;
-var second = 00;
+const axios = require("axios");
+let duration = 0;
+let interval = null;
+let secondContainer;
+let minuteContainer;
+let hourContainer;
+window.onload = function () {
+  const start = document.getElementById("btn_start");
+  const pause = document.getElementById("btn_pause");
+  const reset = document.getElementById("btn_reset");
+  secondContainer = document.getElementById("t_s");
+  minuteContainer = document.getElementById("t_m");
+  hourContainer = document.getElementById("t_h");
+  start.addEventListener("click", () => {
+    interval = setInterval(startCounting, 1000);
+    start.disabled = true;
+    pause.disabled = false;
+    reset.disabled = false;
+  });
 
-var interval = null;
+  pause.addEventListener("click", () => {
+    clearInterval(interval);
+    start.disabled = false;
+    pause.disabled = true;
+    reset.disabled = false;
+  });
 
-window.onload = function() {
-    var start = document.getElementById('btn_start');
-    var pause = document.getElementById('btn_pause');
-    var reset = document.getElementById('btn_reset');
+  reset.addEventListener("click", () => {
+    clearInterval(interval);
+    start.disabled = false;
+    pause.disabled = true;
+    reset.disabled = true;
 
-    start.addEventListener('click', () => {
-        interval = setInterval(startTime, 1000);
-    });
+    minuteContainer.innerHTML = "00";
+    hourContainer.innerHTML = "00";
+    secondContainer.innerHTML = "00";
 
-    pause.addEventListener('click', () => {
-        clearInterval(interval);
-    });
+    let config = {
+      headers: {
+        Authorization:
+          "Bearer " +
+          "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlJDc0dtTW5hZ1phejgxVlVyWWVjNiJ9.eyJpc3MiOiJodHRwczovL2Rldi1rYTEzYjVpMy51cy5hdXRoMC5jb20vIiwic3ViIjoiZ2l0aHVifDYzODE1MDI1IiwiYXVkIjpbImh0dHBzOi8vbG9jYWxob3N0OjMwMDEiLCJodHRwczovL2Rldi1rYTEzYjVpMy51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjQwNzA1NDY4LCJleHAiOjE2NDA3OTE4NjgsImF6cCI6IkJaNVR2dzFpUHM2WFNrdjhud3BObzZXNTloQ1ZCY29JIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCJ9.JswlQZaTye1OtXe3fL8agxcS53H06Ai7ZRX2ryV3khK7gXevqtjNq2hy9Xe4HGz714ungARarFtgLIIksgE2sxS5eKuRTTEI2sNhruUKDW9-WQeb-PAA3kntUigcpHERigVOh7IiPFHiie8wVCvulKicJmF0ksJI-G67BATOVw-jYsYBR-fz_Z1ZDGulCjB5v-DOpDXfnbQoGnsOs963rBUS_UznQdwkrOTIs3WocMy6bq2-46QaSGUgVSYgYfrJztZ2IMNZ7IfzjVmmLpRAeuyHlEDl881UqhOeKNXVL04DvdTlGvYkHwqPYu7pb6ngC2KcYnBknszhj0OuwSE7Ug",
+      },
+    };
 
-    reset.addEventListener('click', () => {
-        clearInterval(interval);
-        [second, minute, hour] = [0, 0, 0];
-        document.getElementById('t_m').innerHTML = "00";
-        document.getElementById('t_h').innerHTML = "00";
-        document.getElementById('t_s').innerHTML = "00";
-    });
-}
+    axios
+      .post("http://localhost:3333/api/duration", { duration }, config)
+      .then((res) => {
+        console.log(res);
+        duration = 0;
+      })
+      .catch((err) => console.error(err));
+  });
+};
+function startCounting() {
+  duration++;
 
-function startTime() {
-    second++;
+  const hours = Math.floor(duration / 3600);
+  const minutes = Math.floor((duration - hours * 3600) / 60);
+  const seconds = duration % 60;
 
-    if (second / 60 === 1) {
-        second = 0;
-        minute++;
-        if (minute / 60 === 1) {
-            minute = 0;
-            hour++;
-        }
-    }
-
-    if (second < 10) {
-        document.getElementById('t_s').innerHTML = "0" + second;
-    }
-    if (second > 9) {
-        document.getElementById('t_m').innerHTML = second;
-    }
-    if (second > 59) {
-        minute++;
-        document.getElementById('t_m').innerHTML = "0" + minute;
-        second = 0;
-        document.getElementById('t_m').innerHTML = "0" + 0;
-    }
-    if (minute < 9) {
-        document.getElementById('t_m').innerHTML = "0" + minute;
-    }
-    if (minute > 9) {
-        document.getElementById('t_m').innerHTML = minute;
-    }
-    if (minute > 59) {
-        hour++;
-        document.getElementById('t_h').innerHTML = "0" + hour;
-        minute = 0;
-        document.getElementById('t_m').innerHTML = "0" + 0;
-    }
+  secondContainer.innerHTML = seconds < 10 ? "0" + seconds : seconds;
+  minuteContainer.innerHTML = minutes < 10 ? "0" + minutes : minutes;
+  hourContainer.innerHTML = hours < 10 ? "0" + hours : hours;
 }

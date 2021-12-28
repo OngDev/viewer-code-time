@@ -32,7 +32,7 @@ const jwtCheck = jwt({
     jwksRequestsPerMinute: 5,
     jwksUri: `https://${process.env.AUTH0_DOMAIN_URL}/.well-known/jwks.json`,
   }),
-  audience: process.env.AUTH0_AUDIENCE,
+  aud: process.env.AUTH0_AUDIENCE,
   issuer: `https://${process.env.AUTH0_DOMAIN_URL}/`,
   algorithms: ["RS256"],
 });
