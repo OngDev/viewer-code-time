@@ -2,6 +2,7 @@
     "name": "app-viewer-code-time",
     "version": "1.0.0",
     "description": "",
+    "module": "true",
     "main": "./js/main.js",
     "scripts": {
         "start": "electron ."

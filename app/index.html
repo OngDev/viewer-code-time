@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" /> -->
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <script src="./js/main.js"></script>
     <script src="./js/preload.js"></script>
@@ -52,12 +52,12 @@
                             </button>
                         </div>
                         <div class="col-sm">
-                            <button class="btn-time" id="btn_pause">
+                            <button class="btn-time" id="btn_pause" disabled>
                                     Pause
                             </button>
                         </div>
                         <div class="col-sm">
-                            <button class="btn-time" id="btn_reset">
+                            <button class="btn-time" id="btn_reset" disabled>
                                     Reset
                             </button>
                         </div>
