@@ -1,0 +1,6 @@
+{
+    "auth0Domain": "dev-2ww2gna5.eu.auth0.com",
+    "clientId": "gaQHyQN4Sb0yzdJvBL5JdfG4Mn5Xt7kd",
+    "apiIdentifier": "https://ahihi.ongdev.com",
+    "redirectUri": "http://localhost/callback"
+  }

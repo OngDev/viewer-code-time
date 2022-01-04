@@ -1,4 +1,17 @@
+const { remote } = require("electron");
+const authService = remote.require("./services/auth-service");
+const authProcess = remote.require("./main/auth-process");
 const axios = require("axios");
+const webContents = remote.getCurrentWebContents();
+
+webContents.on("dom-ready", () => {
+  const profile = authService.getProfile();
+  console.log(profile)
+  // document.getElementById("picture").src = profile.picture;
+  // document.getElementById("name").innerText = profile.name;
+  // document.getElementById("success").innerText =
+  //   "You successfully used OpenID Connect and OAuth 2.0 to authenticate.";
+});
 let duration = 0;
 let interval = null;
 let secondContainer;
