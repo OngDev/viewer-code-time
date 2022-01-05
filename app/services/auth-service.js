@@ -5,7 +5,7 @@ const envVariables = require("../env-variables");
 const keytar = require("keytar");
 const os = require("os");
 
-const { apiIdentifier, auth0Domain, clientId, redirectUri } = envVariables;
+const { serverUrl, auth0Domain, clientId, redirectUri } = envVariables;
 
 const keytarService = "electron-openid-oauth";
 const keytarAccount = os.userInfo().username;
@@ -54,8 +54,9 @@ async function refreshTokens() {
 
     try {
       const response = await axios(refreshOptions);
-
+      console.log(response.data)
       accessToken = response.data.access_token;
+      loginToServer();
       profile = jwtDecode(response.data.id_token);
     } catch (error) {
       await logout();
@@ -89,8 +90,9 @@ async function loadTokens(callbackURL) {
 
   try {
     const response = await axios(options);
-
+console.log(response.data)
     accessToken = response.data.access_token;
+    loginToServer();
     profile = jwtDecode(response.data.id_token);
     refreshToken = response.data.refresh_token;
 
@@ -113,6 +115,26 @@ async function logout() {
 
 function getLogOutUrl() {
   return `https://${auth0Domain}/v2/logout`;
+}
+
+async function loginToServer() {
+  const options = {
+    method: "POST",
+    url: `${serverUrl}/api/auth/login`,
+    headers: {
+      "content-type": "application/json",
+      Authorization:
+        `Bearer ${getAccessToken()}`
+    },
+    data: undefined,
+  };
+
+  try {
+    await axios(options);
+    console.log('Login success');
+  } catch (error) {
+    console.error(error.message)
+  }
 }
 
 module.exports = {

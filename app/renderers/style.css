@@ -155,3 +155,34 @@ header {
 .btn-time:disabled {
   background: grey !important;
 }
+
+div.profile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+div.profile span {
+  display: inline-block;
+  align-self: center;
+  color: #ccc;
+  margin-left: 10px;
+  margin-right: 25px;
+}
+
+div.profile img {
+  width: 30px;
+  border-radius: 50%;
+  align-self: center;
+}
+
+body {
+  padding: 12px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

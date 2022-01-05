@@ -1,9 +1,10 @@
-const electron = require('electron');
-const authService = require('./services/auth-service');
-const {createAuthWindow} = require('./services/auth-process');
-const createAppWindow = require('./main-window');
+const {app} = require('electron');
 
-const { app, BrowserWindow, Menu, ipcMain } = electron;
+const {createAuthWindow} = require('./main/auth-process');
+const createAppWindow = require('./main/app-process');
+const authService = require('./services/auth-service');
+
+require('@electron/remote/main').initialize()
 
 async function showWindow() {
   try {
@@ -15,14 +16,10 @@ async function showWindow() {
 }
 
 
-app.on('ready', showWindow)
+app.on('ready', showWindow);
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit()
     }
-})
-
-module.exports = {
-    createAppWindow
-}
+});

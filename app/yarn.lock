@@ -18,6 +18,11 @@
     "global-agent" "^3.0.0"
     "global-tunnel-ng" "^2.7.1"
 
+"@electron/remote@^2.0.1":
+  "integrity" "sha512-bGX4/yB2bPZwXm1DsxgoABgH0Cz7oFtXJgkerB8VrStYdTyvhGAULzNLRn9rVmeAuC3VUDXaXpZIlZAZHpsLIA=="
+  "resolved" "https://registry.npmjs.org/@electron/remote/-/remote-2.0.1.tgz"
+  "version" "2.0.1"
+
 "@sindresorhus/is@^0.14.0":
   "integrity" "sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ=="
   "resolved" "https://registry.npmjs.org/@sindresorhus/is/-/is-0.14.0.tgz"
@@ -220,7 +225,7 @@
   "resolved" "https://registry.npmjs.org/duplexer3/-/duplexer3-0.1.4.tgz"
   "version" "0.1.4"
 
-"electron@^16.0.5":
+"electron@^16.0.5", "electron@>= 10.0.0-beta.1":
   "integrity" "sha512-TgQXWmEGQ3uH2P2JDq5GyJDEu/fimRgqp1iNisARtGreU1k3630PqWlR+4SPnSEHN9NuSv92ng6NWxtefeFzxg=="
   "resolved" "https://registry.npmjs.org/electron/-/electron-16.0.5.tgz"
   "version" "16.0.5"
