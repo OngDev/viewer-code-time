@@ -207,7 +207,7 @@ const formLogin = function () {
 
 window.onload = () => {
     updateList()
-    formLogin()
+    //formLogin()
 
     const timeStampDayNode = document.querySelector(".time.time__day")
     const timeStampWeekNode = document.querySelector(".time.time__week")
