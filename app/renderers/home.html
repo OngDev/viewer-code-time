@@ -6,21 +6,19 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" /> -->
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <script src="./js/main.js"></script>
-    <script src="./js/preload.js"></script>
-    <script src="./js/renderer.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+
     <title>Viewer code time app</title>
 </head>
 
 <body>
-    <header class="header">
-        <button class="btn-login">
-              <a href="#" class="text-login">
-                  <span class="login">login</span>
-             </a>
-        </button>
-    </header>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="profile">
+            <img id="picture" />
+            <span id="name"></span>
+            <button id="logout" class="btn">Logout</button>
+        </div>
+    </nav>
     <content>
         <div class="container">
             <div class="box box_inner">
@@ -48,17 +46,17 @@
                     <div class="row row-btn-time">
                         <div class="col-sm">
                             <button class="btn-time" id="btn_start">
-                                    Start
+                                Start
                             </button>
                         </div>
                         <div class="col-sm">
                             <button class="btn-time" id="btn_pause" disabled>
-                                    Pause
+                                Pause
                             </button>
                         </div>
                         <div class="col-sm">
                             <button class="btn-time" id="btn_reset" disabled>
-                                    Reset
+                                Reset
                             </button>
                         </div>
                     </div>
@@ -67,6 +65,8 @@
             </div>
         </div>
     </content>
+
 </body>
+<script src="home.js"></script>
 
 </html>

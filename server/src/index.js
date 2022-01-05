@@ -3,8 +3,6 @@ const app = express();
 const mongoose = require("mongoose");
 require("dotenv/config");
 const cors = require("cors");
-const jwt = require("express-jwt");
-const jwks = require("jwks-rsa");
 
 const authRouter = require("./routes/auth");
 const userRouter = require("./routes/user");
@@ -25,24 +23,12 @@ const port = process.env.PORT || 3333;
 app.use(express.json());
 app.use(cors());
 
-const jwtCheck = jwt({
-  secret: jwks.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: `https://${process.env.AUTH0_DOMAIN_URL}/.well-known/jwks.json`,
-  }),
-  aud: process.env.AUTH0_AUDIENCE,
-  issuer: `https://${process.env.AUTH0_DOMAIN_URL}/`,
-  algorithms: ["RS256"],
-});
-
 //router
-app.use("/api/auth", jwtCheck, authRouter);
+app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
-app.use("/api/duration", jwtCheck, durationRouter);
+app.use("/api/duration", durationRouter);
 
-app.use("/api", jwtCheck, (req, res) => {
+app.use("/api", (req, res) => {
   res.send("halo");
 });
 

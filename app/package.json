@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "module": "true",
-    "main": "./js/main.js",
+    "main": "./main.js",
     "scripts": {
         "start": "electron ."
     },
@@ -14,7 +14,9 @@
         "electron": "^16.0.5"
     },
     "dependencies": {
+        "@electron/remote": "^2.0.1",
         "axios": "^0.24.0",
-        "jwt-decode": "^3.1.2"
+        "jwt-decode": "^3.1.2",
+        "keytar": "^7.7.0"
     }
 }

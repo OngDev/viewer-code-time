@@ -1,0 +1,7 @@
+{
+    "auth0Domain": "dev-2ww2gna5.eu.auth0.com",
+    "clientId": "gaQHyQN4Sb0yzdJvBL5JdfG4Mn5Xt7kd",
+    "apiIdentifier": "https://dev-2ww2gna5.eu.auth0.com/api/v2/",
+    "redirectUri": "http://localhost/callback",
+    "serverUrl": "http://localhost:3333"
+  }
