@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:3333/api"
+const apiUrl = "https://viewerapi.ongdev.com//api"
 let timeStamp = "date" // date - week - month - year
 
 function formatTimeFromSec(sec) {
