@@ -2,6 +2,7 @@ const remote = require('@electron/remote')
 const authService = remote.require("./services/auth-service");
 const authProcess = remote.require("./main/auth-process");
 const axios = require("axios");
+const envVariables = require("../env-variables");
 const webContents = remote.getCurrentWebContents();
 
 let duration = 0;
@@ -68,7 +69,7 @@ webContents.on("dom-ready", () => {
     };
 
     axios
-      .post("http://localhost:3333/api/duration", { duration }, config)
+      .post(`${envVariables.serverUrl}/api/duration`, { duration }, config)
       .then((res) => {
         console.log(res);
         duration = 0;
