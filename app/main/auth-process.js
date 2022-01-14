@@ -13,11 +13,13 @@ function createAuthWindow() {
     win = new BrowserWindow({
         width: 400,
         height: 600,
+        minWidth: 400,
+        minHeight: 600,
         webPreferences: {
             nodeIntegration: false,
-            enableRemoteModule: false
-        }
-    });
+            enableRemoteModule: false,
+        },
+    })
 
     win.loadURL(authService.getAuthenticationURL());
 
